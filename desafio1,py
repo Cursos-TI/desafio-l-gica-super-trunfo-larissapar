@@ -1,0 +1,88 @@
+print("===== SUPER TRUNFO DAS CIDADES =====\n")
+
+# Cadastro da primeira carta
+print("=== Cadastro da Primeira Carta ===")
+codigo1 = input("Código da carta: ")
+cidade1 = input("Nome da cidade: ")
+populacao1 = int(input("População: "))
+area1 = float(input("Área (km²): "))
+pib1 = float(input("PIB (em bilhões): "))
+turismo1 = int(input("Número de pontos turísticos: "))
+
+# Cadastro da segunda carta
+print("\n=== Cadastro da Segunda Carta ===")
+codigo2 = input("Código da carta: ")
+cidade2 = input("Nome da cidade: ")
+populacao2 = int(input("População: "))
+area2 = float(input("Área (km²): "))
+pib2 = float(input("PIB (em bilhões): "))
+turismo2 = int(input("Número de pontos turísticos: "))
+
+# Cálculo da densidade populacional
+densidade1 = populacao1 / area1
+densidade2 = populacao2 / area2
+
+# Exibição das cartas
+print("\n===== CARTA 1 =====")
+print(f"Código: {codigo1}")
+print(f"Cidade: {cidade1}")
+print(f"População: {populacao1}")
+print(f"Área: {area1:.2f} km²")
+print(f"PIB: {pib1:.2f} bilhões")
+print(f"Pontos turísticos: {turismo1}")
+print(f"Densidade Populacional: {densidade1:.2f} hab/km²")
+
+print("\n===== CARTA 2 =====")
+print(f"Código: {codigo2}")
+print(f"Cidade: {cidade2}")
+print(f"População: {populacao2}")
+print(f"Área: {area2:.2f} km²")
+print(f"PIB: {pib2:.2f} bilhões")
+print(f"Pontos turísticos: {turismo2}")
+print(f"Densidade Populacional: {densidade2:.2f} hab/km²")
+
+# Escolha do atributo
+print("\nAtributos disponíveis: populacao, area, pib, turismo, densidade")
+atributo = input("Digite o atributo para comparação: ").lower()
+
+# Comparação das cartas
+vencedor = None
+
+if atributo == "populacao":
+if populacao1 > populacao2:
+vencedor = cidade1
+elif populacao2 > populacao1:
+vencedor = cidade2
+
+elif atributo == "area":
+if area1 > area2:
+vencedor = cidade1
+elif area2 > area1:
+vencedor = cidade2
+
+elif atributo == "pib":
+if pib1 > pib2:
+vencedor = cidade1
+elif pib2 > pib1:
+vencedor = cidade2
+
+elif atributo == "turismo":
+if turismo1 > turismo2:
+vencedor = cidade1
+elif turismo2 > turismo1:
+vencedor = cidade2
+
+elif atributo == "densidade":
+if densidade1 < densidade2: # aqui o menor vence
+vencedor = cidade1
+elif densidade2 < densidade1:
+vencedor = cidade2
+
+else:
+print("\n⚠️ Atributo inválido! Reinicie o jogo.")
+
+# Resultado final
+if vencedor:
+print(f"\n🏆 A cidade vencedora é: {vencedor} 🏆")
+elif vencedor is None and atributo in ["populacao", "area", "pib", "turismo", "densidade"]:
+print("\n🤝 Houve um EMPATE entre as duas cidades!")
